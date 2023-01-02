@@ -1,0 +1,215 @@
+$breakpoints: (
+    'xs': 0,
+    'sm': 480px,
+    'md': 720px,
+    'lg': 960px,
+    'xl': 1200px,
+);
+
+@mixin xs {
+    @media (max-width: map-get($breakpoints, 'xs')) {
+        @content;
+    }
+}
+
+@mixin sm {
+    @media (max-width: map-get($breakpoints, 'sm')) {
+        @content;
+    }
+}
+
+@mixin md {
+    @media (max-width: map-get($breakpoints, 'md')) {
+        @content;
+    }
+}
+
+@mixin lg {
+    @media (max-width: map-get($breakpoints, 'lg')) {
+        @content;
+    }
+}
+
+@mixin xl {
+    @media (max-width: map-get($breakpoints, 'xl')) {
+        @content;
+    }
+}
+
+body {
+    @include xs {
+        background-color: rgb(18, 86, 213);
+
+    }
+    @include sm {
+        background-color: green;
+    }
+    @include md {
+        background-color: red;
+    }
+    @include lg {
+        background-color: yellow;
+    }
+    @include xl {
+        background-color: orange;
+        
+    }
+    
+}
+
+.game-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 450px 450px 450px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    text-align: center;
+    grid-gap: 20px;
+
+    
+
+   /* @media (max-width: 768px) {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 450px 450px 450px 450px 450px;
+    }
+
+    @media (max-width: 375px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: 450px 450px 450px 450px 450px 450px 450px 450px 450px;
+    }*/
+}
+
+.shop {
+    position: relative;
+    right: 100px;
+    padding: 24px 24px;
+    height: 70px;
+    width: 70px;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    background-color: rgb(182, 182, 13);
+    text-align: center;
+
+    .cart-number {
+        position: absolute;
+        top: 10px;
+        //left: 0px;
+        right: 9px;
+        font-size: 12px;
+        font-weight: bold;
+        height: 15px;
+        width: 15px;
+        background-color: red;
+        border-radius: 50%;
+    }
+
+    .cart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+       /* @media (max-width: 375px ) {
+            max-width: 375px;
+        }*/
+    }
+}
+
+
+@include xl {
+    .shop {
+        height: 70px;
+        width: 70px;
+    }
+
+// Show list of items stored when click on shop icon
+
+.list {
+    display: block;
+    position: absolute;
+    top: 319px;
+    right: 0;
+    width: 300px;
+
+    .list__item {
+        //position: absolute;
+        list-style-type: none;
+        width: 100%;
+        height: 100px;
+        top: 0px;
+        right: 0px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #333;
+        background-color: #7e640f;
+        padding: 15px;
+        border-bottom: 2px solid #333;
+    }
+}
+
+.appear {
+    display: block;
+}
+
+
+
+.list__delete {
+    cursor: pointer;
+    background-color: #e74c3c;
+    border: 1px solid black;
+    border-radius: 5px;
+    color: white;
+    width: 40px;
+    height: 40px;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+
+}
+
+@include md {
+    .shop {
+        right: 30px;
+    }
+}
+
+@include sm {
+    .game-container {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 450px 450px;
+    }
+
+    .search {
+        width: 300px;
+    }
+
+    .search__input {
+        height: 90px;
+        width: 200px;
+    }
+
+    .finder {
+        height: 73px;
+    }
+    .shop {
+        right: 30px;
+        height: 90px;
+        width: 90px;
+    }
+    .list__item {
+        top: 460px; 
+    }
+
+    .list {
+        top: 338px;
+    }
+}
+
+
+
+
+

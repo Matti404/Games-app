@@ -1,0 +1,355 @@
+@import 'media';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    //background-color: rgb(18, 86, 213);
+    transition: transform 0.3s ease;
+    //max-width: 1200px;
+    width: 100%;
+    background-color: orange;
+}
+
+.menu {
+    background-color: hsl(29, 53%, 42%);
+    //padding: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 800px;
+
+    &__hamburger {
+        position: absolute;
+        top: 15px;
+        left: 35px;
+        //height: 100%;
+        background-color: rgb(227, 196, 138);
+        //background-color: orange;
+        color: black;
+        border: none;
+        padding: 10px 24px;
+        font-size: 25px;    
+    }
+
+    &__list {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        height: 100px;
+        align-items: center;
+        line-height: 1px;
+        width: 100%;
+        margin-right: 10px;
+    }
+    &__item {
+        margin-left: 9px;
+    }
+    &__link {
+        // margin: 9px;
+        text-decoration: none;
+        //color: #8f8f8f;
+        color: black;
+        font-size: 20px;
+        font-weight: 400;
+        transition: all 0.5s ease-in-out;
+        //position: relative;
+        text-transform: uppercase;
+        //min-width: 100px;
+        }    
+}
+
+.menu__item:first-of-type {
+    margin-left: 99px;
+}
+
+.header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    //margin: 40px;
+
+    &__title {
+        text-align: center;
+        flex-grow: 1;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 60px;
+        color: #e72e9d;
+        margin: 40px auto;
+    }
+}
+
+.show-nav {
+    transform: translateX(300px);
+}
+
+
+// nav container
+
+.nav-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;   
+}
+
+.search {
+    text-align: center;
+    position: relative;
+    margin: 0 auto;
+    height: 150px;
+    //width: 480px;
+}
+
+.search__input {
+    width: 100%;
+    border: 3px solid black;
+    background-color: black;
+    color: white;
+    border-radius: 100px;
+    padding: 10px 100px 10px 20px; 
+    line-height: 1;
+    box-sizing: border-box;
+    outline: none;
+    font-size: 40px;
+}
+
+.search__input:focus {
+    outline: none;
+}
+
+::placeholder {
+    color: white;
+}
+
+.finder {
+    position: absolute;
+    background-color: rgb(182, 182, 13); 
+    right: 10px;
+    top: 8px;
+    line-height: 1;
+    border: none;
+    border-radius: 100px;
+    padding: 26px 40px;
+    width: 90px;
+}
+
+.finder-el {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    //background-color: rgb(182, 182, 13);
+}
+
+
+
+
+
+// Styling number on shop icon
+
+.show {
+    opacity: 1;
+}
+
+// show number on shop icon
+
+.show-number {
+    display: block;
+}
+
+// hide number on shop icon
+
+.hide-number {
+    display: none;
+}
+
+
+// Navbar styling 
+
+.info {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    //background-color:rgb(116, 109, 51);
+    background-color: rgb(182, 182, 13);
+    text-align: center;
+    
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            border-bottom: 2px solid black;
+            padding: 20px;
+        }
+
+            p {
+                font-size: 21px;
+            }
+    }
+    
+    &__photo {
+        position: relative;
+        height: 120px;
+        width: 100px;
+        border-radius: 50%;
+        margin: 16px 0;
+        cursor: pointer;
+    }
+    
+}
+
+.show-navbar {
+    display: block;
+    position: absolute;
+    //height: 20px;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+}
+
+
+
+
+.info ul li:first-of-type {
+    border-top: 4px solid rgba(15, 2, 2, 0.8);
+}
+
+// info section
+
+.info-container {
+    margin-top: 25px;
+    margin-left: 15px;
+
+    p {
+        margin: 20px 20px;
+        font-size: 30px;
+    }
+
+    ul {
+        margin-left: 40px;
+        font-size: 30px;
+    }
+
+    .games {
+        margin-top: 40px;
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 60px;
+        color: gold;
+    }
+}
+
+// box section
+
+
+
+.game__btn, .add-selected-btn { 
+    color: black;
+    padding: 0.6rem 1.3rem;
+    text-align: center;
+    font-weight: bold;
+    border: 1.5px solid black;
+    background-color: #7e7e0f;
+    text-decoration: none;
+    border-radius: 6px;
+    cursor: pointer;  
+    text-align: center;
+    height: 50px;
+    width: 130px;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+.list__buy { 
+    color: black;
+    padding: 0.6rem 1.3rem;
+    text-align: center;
+    font-weight: bold;
+    border: 1.5px solid black;
+    background-color: #7e7e0f;
+    text-decoration: none;
+    border-radius: 6px;
+    cursor: pointer;  
+    text-align: center;
+    height: 50px;
+    width: 130px;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+.game__name {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 14px;
+    text-align: center;
+}
+  
+.game__price {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 14px;
+    text-align: center;
+}
+
+
+.make {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+
+// Styling button that adds more games
+
+#more {
+    display: block;
+    margin: 80px auto 80px;
+    color: black;
+    padding: 0.6rem 1.3rem;
+    text-align: center;
+    font-weight: bold;
+    border: 1.5px solid black;
+    background-color: #7e7e0f;
+    text-decoration: none;
+    border-radius: 6px;
+    cursor: pointer;  
+    text-align: center;
+    height: 50px;
+    width: 130px;
+}
+  
+/* Footer */
+
+footer {
+    position: relative;
+    background: rgb(15, 78, 99);
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    bottom: 0;
+    margin-top: 30px;
+    left: 0
+}
+  
+
+
+    
+      

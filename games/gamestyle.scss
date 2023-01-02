@@ -1,0 +1,255 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(18, 86, 213);
+    transition: transform 0.3s ease;
+    max-width: 1440px;
+    min-height: 100vh;
+}
+
+
+// nav container
+
+.nav-container {
+    display: flex;
+    position: relative;
+    height: 90px;
+    background-color: rgb(7, 5, 5);
+    justify-content: space-between;
+    align-items: center;
+    
+    @media (max-width: 375px ) and (min-width: 320px) {
+        max-width: 375px;
+    }
+}
+
+.hamburger {
+    height: 100%;
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 0px 24px;
+}
+
+
+.search {
+    height: 100%;
+    width: 100px;
+    padding: 24px 24px;
+    background-color: black;
+    color: white;
+    text-align: start;
+    border: none;
+    font-size: 40px;
+    flex-grow: 1;
+}
+
+.search:focus {
+    outline: none;
+}
+
+
+.finder {
+    position: relative;
+    height: 100%;
+    width: 100px;
+    border-right: 1px solid rgb(189, 152, 121);  
+    background-color: rgb(182, 182, 13);   
+}
+
+.finder-el {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.shop {
+    position: relative;
+    padding: 24px 24px;
+    height: 100%;
+    width: 100px;
+    border: none;
+    color: white;
+    background-color: green;
+    text-align: center;
+
+    .cart-number {
+        position: absolute;
+        top: 20px;
+        left: 60px;
+        font-size: 12px;
+        font-weight: bold;
+        height: 15px;
+        width: 15px;
+        background-color: red;
+        border-radius: 50%;
+    }
+
+    .cart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+        @media (max-width: 375px ) {
+            max-width: 375px;
+        }
+    }
+}
+
+// Styling number on shop icon
+
+.show {
+    opacity: 1;
+}
+
+// show number on shop icon
+
+.show-number {
+    display: block;
+}
+
+// hide number on shop icon
+
+.hide-number {
+    display: none;
+}
+
+
+// Navbar styling 
+
+.navbar {
+    display: none;
+    position: absolute;
+    top: 90px;
+    left: 0;
+    width: 371px;
+    background-color:rgb(116, 109, 51);
+    text-align: center;
+    z-index: 1;
+    
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            border-bottom: 2px solid black;
+            padding: 10px;
+            margin: 0;
+        }
+
+            p {
+                font-size: 23px;
+                margin: 1px
+            }
+    }
+    .photo {
+        position: relative;
+        height: 120px;
+        width: 100px;
+        border-radius: 50%;
+        margin: 16px 0;
+    }
+    
+}
+
+.show-nav {
+    display: block;
+    position: absolute;
+    top: 90px;
+    left: 0px;
+}
+
+.navbar ul li:first-of-type {
+    border-top: 3px solid rgba(15, 2, 2, 0.8);
+}
+
+
+// info section
+
+.info-container {
+    position: relative;
+    //margin: 30px 40px;
+}
+
+.info-container h1, p {
+    margin: 20px 20px;
+    font-size: 30px;
+
+    @media (max-width: 375px ) and (min-width: 320px) {
+        font-size: 35px;
+    }
+    
+}
+
+.box-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+
+.number1 {
+    position: relative;
+    top: 60px;
+    
+}
+
+.number2 {
+    position: relative;
+    top: 140px;
+    
+}
+
+.drawer {
+    height: 500px;
+    width: 4px;
+    background-color: black;
+}
+
+.btn-previous, .btn-purchase { 
+    color: black;
+    grid-column: 2/3;
+    padding: 0.6rem 1.3rem;
+    text-align: center;
+    font-weight: bold;
+    border: 1.5px solid black;
+    background-color: #7e7e0f;
+    text-decoration: none;
+    border-radius: 6px;
+    cursor: pointer;  
+    text-align: center;
+    height: 50px;
+    width: fit-content;
+}
+
+.number2 > button:nth-of-type(2) {
+    margin-left: 20px;
+}
+  
+.price {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 14px;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    position: fixed;
+    background: rgb(15, 78, 99);
+    background-size: cover;
+    color: white;
+    text-align: center;
+    bottom: 0px;
+    padding: 20px;
+    width: 100%;
+}
+  
