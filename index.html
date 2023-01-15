@@ -1,103 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>    
-  <meta charset="UTF-8">
-  <meta name="viewport"
-  content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible"
-  content="ie=edge">
-  <title>Game Prices upgraded</title>
-  <script src="https://kit.fontawesome.com/aef7dcc83c.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="/style/style.css">
-  
-</head>
-<body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Game Prices upgraded</title>
+    <script
+      src="https://kit.fontawesome.com/aef7dcc83c.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/style/style.css" />
+  </head>
+  <body>
     <!-- Navbar -->
 
     <nav class="menu">
-        <button id="hamburger" class="menu__hamburger">
-            <i class="ham fas fa-bars fa-2x"></i>   
-        </button>
-        <ul class="menu__list">
-            <li class="menu__item"><a href='#' class="menu__link">Home</a></li>
-            <li class="menu__item"><a href='#' class="menu__link">About</a></li>
-            <li class="menu__item"><a href='#' class="menu__link">Projects</a></li>
-            <li class="menu__item"><a href='#' class="menu__link">Blog</a></li>
-            <li class="menu__item"><a href='#' class="menu__link">Contact</a></li>
+      <button id="hamburger" class="menu__hamburger">
+        <i class="ham fas fa-bars fa-2x"></i>
+      </button>
+      <ul class="menu__list">
+        <li class="menu__item"><a href="#" class="menu__link">Home</a></li>
+        <li class="menu__item"><a href="#" class="menu__link">About</a></li>
+        <li class="menu__item"><a href="#" class="menu__link">Projects</a></li>
+        <li class="menu__item"><a href="#" class="menu__link">Blog</a></li>
+        <li class="menu__item"><a href="#" class="menu__link">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="header">
+      <h1 class="header__title">Gaming Store</h1>
+
+      <nav class="info header__info">
+        <img class="info__photo" src="1.jpg" alt="user" />
+
+        <ul>
+          <li>
+            <p>Imię i Nazwisko</p>
+            <br />
+            <p>Maciej Andraka</p>
+          </li>
+
+          <li>
+            <p>Wiek</p>
+            <br />
+            <p>31</p>
+          </li>
+
+          <li>
+            <p>Tel</p>
+            <br />
+            <p>502-459-802</p>
+          </li>
+
+          <li>
+            <p>E-mail</p>
+            <br />
+            <p>maciej.andraka.ma@gmail.com</p>
+          </li>
+
+          <li>
+            <p>Zainteresowania</p>
+            <br />
+            <p>Historia, Języki Obce, Programowanie</p>
+          </li>
         </ul>
       </nav>
-      
-      <div class="header">
-        
-        <h1 class='header__title'>Gaming Store</h1>
-        
-        <nav class="info header__info">
-
-            <img class="info__photo" src="1.jpg" alt="user" />
-            
-    
-            <ul>
-                <li>
-                    <p>Imię i Nazwisko</p> <br>
-                    <p>Maciej Andraka</p>
-                </li>
-                            
-                <li>
-                    <p>Wiek</p> <br>
-                    <p>31</p>
-                </li>
-                            
-                <li>
-                    <p>Tel</p> <br>
-                    <p>502-459-802</p>
-                </li>
-                            
-                <li>
-                    <p>E-mail</p> <br>
-                    <p>maciej.andraka.ma@gmail.com</p>
-                </li>
-                            
-                <li>
-                    <p>Zainteresowania</p> <br>
-                    <p>Historia, Języki Obce, Programowanie</p>
-                </li>
-                        
-            </ul>    
-        </nav>
-        
     </div>
-    
-    <div class="nav-container">
-           
-        <div class="search">
-            <input type='search' class="search__input" placeholder="Search..."/>
-            <button class="finder">
-                <i class="finder-el fas fa-search fa-2x" type="button"></i>
-            </button>
-        </div>
 
-        <span class="shop">
-            <i class="cart fas fa-shopping-cart fa-2x"></i>
-            <div class="cart-number">0</div>
-        </span>
-    
-    </div>             
-    
+    <div class="nav-container">
+      <div class="search">
+        <input type="search" class="search__input" placeholder="Search..." />
+        <button class="finder">
+          <i class="finder-el fas fa-search fa-2x" type="button"></i>
+        </button>
+      </div>
+
+      <span class="shop">
+        <i class="cart fas fa-shopping-cart fa-2x"></i>
+        <div class="cart-number">0</div>
+      </span>
+    </div>
+
     <ul id="list" class="list"></ul>
 
-    
     <div class="game-container"></div>
 
-<button id="more">Add more games</button>
-<div id="cards">
-</div>
+    <button id="more">Add more games</button>
+    <div id="cards"></div>
 
+    <footer>
+      <p>GamePriceWeb &copy; 2022</p>
+    </footer>
 
-<footer>
-    <p>GamePriceWeb &copy; 2022</p>    
-</footer>
-
-<script src="main.js"></script>
-</body>
+    <script src="main.js"></script>
+  </body>
 </html>
