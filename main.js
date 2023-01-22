@@ -84,10 +84,11 @@ async function loadData() {
     
     if (cart.some((item) => item.id === id)) {
       alert("Game is already in shop list");
+      
     } else {
       const item = allGames.find((product) => product.id === id);
       cart.push(item);
-      console.log(cart);
+     // console.log(item);
       
       // Add game li tag to shoping list
       const addedGameListItem = document.createElement("li");
@@ -104,6 +105,7 @@ async function loadData() {
       const addedGameButton = document.createElement("button");
       addedGameButton.classList.add("list__buy");
       addedGameButton.innerText = "Buy now";
+    
       const deleteBtn = document.createElement("button");
       deleteBtn.classList.add("list__delete");
       deleteBtn.innerText = "X";
@@ -112,7 +114,7 @@ async function loadData() {
       console.log(addedGameListItem);
       ulList.appendChild(addedGameListItem);
       ulList.classList.add("hide");
-      
+
       // Delete games in shoping list
       
       deleteBtn.addEventListener("click", (e) => {
@@ -125,11 +127,23 @@ async function loadData() {
         }
       }
     });
+console.log(cart)
+
+  // check if user has bought a game then refresh a page
+    addedGameButton.addEventListener('click', function() {
+      if (confirm('Are you sure ?') == true) {
+        
+        alert(`Congrats, you have bought a ${item.title} game. Enjoy your playing :) `)
+        setTimeout(function(){
+          window.location.reload();
+       }, 3000);
+      }
+      
+    })
+    
     cartNumber.innerHTML = ++i;
   }
   clickedGame();
-
-  
 }
 
 showGames();
@@ -181,14 +195,26 @@ async function searchLetters(e) {
           
           let filterGameBtn = document.createElement("button");
           filterGameBtn.classList.add("add-selected-btn");
-        filterGameBtn.innerText = "Add to cart";
-        filterGameBtn.setAttribute("game", JSON.stringify(allGames[j]));
+          filterGameBtn.innerText = "Add to cart";
+          filterGameBtn.setAttribute("game", JSON.stringify(allGames[j]));
+          
+          filterGame.appendChild(filterImg);
+          filterGame.appendChild(filterName);
+          filterGame.appendChild(filterGameBtn);
+          
+          gameContainer.appendChild(filterGame);
+
+          // check if user has bought selected by him game then refresh a page
+          filterGameBtn.addEventListener('click', function() {
+            if (confirm('Are you sure ?') == true) {
+              
+              alert(`Congrats, you have bought a ${allGames[j].title} game. Enjoy your playing :) `)
+              setTimeout(function(){
+                window.location.reload();
+            }, 3000);
+        }
         
-        filterGame.appendChild(filterImg);
-        filterGame.appendChild(filterName);
-        filterGame.appendChild(filterGameBtn);
-        
-        gameContainer.appendChild(filterGame);
+      })
       }
     }
   }
@@ -218,11 +244,11 @@ searchInput.addEventListener("change", searchLetters);
 
 // Alert if user has bought a game
 
-ulList.addEventListener('click', (e) => {
+/*ulList.addEventListener('click', (e) => {
   if (e.target.classList.contains('list__buy')) {
     alert("Congratulations, you have bought a game");
   }
-});
+});*/
 
 
 
