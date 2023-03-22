@@ -12,12 +12,12 @@
     <link rel="stylesheet" href="/style/style.css" />
   </head>
   <body>
+
     <!-- Navbar -->
 
     <nav class="menu">
-      <button id="hamburger" class="menu__hamburger">
-        <i class="ham fas fa-bars fa-2x"></i>
-      </button>
+      
+      <a href="#" class="menu__info">About Me</a>
       <ul class="menu__list">
         <li class="menu__item"><a href="#" class="menu__link">Home</a></li>
         <li class="menu__item"><a href="#" class="menu__link">About</a></li>
@@ -27,6 +27,11 @@
       </ul>
     </nav>
 
+
+  <button id="hamburger" class="btn__hamburger">
+    <i class="ham fas fa-bars fa-2x"></i>
+  </button>
+
     <div class="header">
       <h1 class="header__title">Gaming Store</h1>
 
@@ -34,6 +39,7 @@
     </div>
 
     <div class="nav-container">
+     
       <div class="search">
         <input type="search" class="search__input" placeholder="Search..." />
         <button class="finder">
@@ -41,57 +47,72 @@
         </button>
       </div>
 
-      <span class="shop">
+      <div class="shop">
         <i class="cart fas fa-shopping-cart fa-2x"></i>
         <div class="cart-number">0</div>
-      </span>
+      </div>
     </div>
 
     <ul id="list" class="list"></ul>
 
-    <div class="game-container"></div>
+   <div class="game-container"></div>
 
     <button id="more">Add more games</button>
     <div id="cards"></div>
    
-    <nav class="info">
-      <img class="info__photo" src="1.jpg" alt="user" />
+    
+<div class="aside-menu">
+  <ul class="aside-menu__list">
+    <li class="aside-menu__item"><a href="#" class="aside-menu__link">Home</a></li>
+    <li class="aside-menu__item"><a href="#" class="aside-menu__link">About</a></li>
+    <li class="aside-menu__item"><a href="#" class="aside-menu__link">Projects</a></li>
+    <li class="aside-menu__item"><a href="#" class="aside-menu__link">Blog</a></li>
+    <li class="aside-menu__item"><a href="#" class="aside-menu__link">Contact</a></li>
+  </ul>
+</div>
 
-      <ul>
-        <li>
-          <p>Name and Surname</p>
-          <br />
-          <p>Maciej Andraka</p>
-        </li>
+<nav class="info">
+  <img class="info__photo" src="1.jpg" alt="user" />
 
-        <li>
-          <p>Age</p>
-          <br />
-          <p>32</p>
-        </li>
+  <ul>
+    <li>
+      <p>Name and Surname</p>
+      
+      <p>Maciej Andraka</p>
+    </li>
 
-        <li>
-          <p>Tel</p>
-          <br />
-          <p>502-459-802</p>
-        </li>
+    <li>
+      <p>Age</p>
+      
+      <p>32</p>
+    </li>
 
-        <li>
-          <p>E-mail</p>
-          <br />
-          <p>maciej.andraka.ma@gmail.com</p>
-        </li>
+    <li>
+      <p>Tel</p>
+      
+      <p>502-459-802</p>
+    </li>
 
-        <li>
-          <p>My hobbys:</p>
-          <br />
-          <p>history, foreign languages, programing.</p>
-        </li>
-      </ul>
-    </nav>
-    <footer>
-      <p>GamePriceWeb &copy; 2022</p>
-    </footer>
+    <li>
+      <p>E-mail</p>
+      
+      <p>maciej.andraka.ma@gmail.com</p>
+    </li>
+
+    <li>
+      <p>My hobbys:</p>
+      
+      <p>history, foreign languages, programing.</p>
+    </li>
+  </ul>
+</nav>
+
+
+
+
+<footer>
+    <p>GamePriceWeb &copy; </p>
+</footer>
 
     <script src="main.js"></script>
   </body>

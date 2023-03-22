@@ -1,24 +1,14 @@
-/*let games = [
-  {name: 'gta', id: 1, price: 90, img: 'img1.jpg', url: "../games/gta5.html"},
-  {name: 'naruto', id: 2, price: 100, img: 'img2.jpg', url: "../games/Naruto.html"}, 
-  {name: 'kratos', id: 3, price: 50, img: 'img3.jpg', url: "../games/kratos.html"},
-  {name: 'souls', id: 4, price: 24, img: 'img4.jpg', url: "../games/souls.html"},
-  {name: 'persona', id: 5, price: 35, img: 'img5.jpg', url: "../games/persona.html"},
-  {name: 'final', id: 6, price: 65, img: 'img6.jpg', url: "../games/final.html"},
-  {name: 'witcher', id: 7, price: 18, img: 'img7.jpg', url: "../games/witcher.html"},
-];*/
-
-let games = [];
-
 const gameContainer = document.querySelector(".game-container");
 const searchInput = document.querySelector(".search");
 const cartNumber = document.querySelector(".cart-number");
 const hamburger = document.getElementById("hamburger");
+const menuInfo = document.querySelector('.menu__info');
 const navBar = document.querySelector(".info");
 const moreGameBtn = document.getElementById("more");
+const asideMenu = document.querySelector(".aside-menu")
 
 
-// promise
+// Fetch API
 
 const options = {
   method: "GET",
@@ -45,10 +35,13 @@ async function loadData() {
     
     return data;
   }
+
+
   const shop = document.querySelector(".shop");
   const addToCartButtons = document.querySelectorAll(".game__btn");
   const buyButtons = document.querySelectorAll(".list__buy");
   const ulList = document.querySelector(".list");
+  const navEl = document.querySelector(".menu__list")
   const liItem = document.querySelector(".list__item");
   const deleteBtn = document.querySelector(".list__delete");
   
@@ -57,13 +50,13 @@ async function loadData() {
   async function showGames() {
     let allGames = await loadData();
     console.log(allGames);
-    allGames = allGames.slice(0, 3);
+    allGames = allGames.slice(0, 8);
     cartNumber.classList.add("hide-number");
     allGames.forEach((values) => {
       const item = document.createElement("div");
       item.classList.add("game__div");
       item.innerHTML = `
-      <img src=${values.thumbnail} height="200" width="156"/>
+      <img class="game__image" src=${values.thumbnail} />
       <h5 class="game__name">${values.title}</h5>
       <button class="game__btn" onclick='addToCart(${values.id})'>Add to cart</button>
       </div>`;
@@ -88,9 +81,9 @@ async function loadData() {
     } else {
       const item = allGames.find((product) => product.id === id);
       cart.push(item);
-     // console.log(item);
       
-      // Add game li tag to shoping list
+    // Add game li tag to shoping list
+
       const addedGameListItem = document.createElement("li");
       addedGameListItem.classList.add("list__item");
       const addedGameImage = document.createElement("img");
@@ -113,7 +106,6 @@ async function loadData() {
       addedGameListItem.appendChild(deleteBtn);
       console.log(addedGameListItem);
       ulList.appendChild(addedGameListItem);
-      ulList.classList.add("hide");
 
       // Delete games in shoping list
       
@@ -127,9 +119,11 @@ async function loadData() {
         }
       }
     });
-console.log(cart)
+
+    console.log(cart)
 
   // check if user has bought a game then refresh a page
+
     addedGameButton.addEventListener('click', function() {
       if (confirm('Are you sure ?') == true) {
         
@@ -138,9 +132,7 @@ console.log(cart)
           window.location.reload();
        }, 3000);
       }
-      
     })
-    
     cartNumber.innerHTML = ++i;
   }
   clickedGame();
@@ -148,16 +140,19 @@ console.log(cart)
 
 showGames();
 
-let start = 3;
-let end = 5;
+let start = 8;
+let end = 16;
+
+const pageSize = 8
 
 async function sliced() {
   let currentGames = await loadData();
   console.log(currentGames);
   
   currentGames = currentGames.slice(start, end);
-  start += 2;
-  end += 2;
+  start = start + pageSize;
+  end = end + pageSize;
+
   currentGames.forEach((values) => {
     const item = document.createElement("div");
     item.classList.add("game__div");
@@ -170,33 +165,30 @@ async function sliced() {
   });
 }
 
+// narrow search results after user types game title in input field
+
 async function searchLetters(e) {
   gameContainer.innerHTML = "";
   const allGames = await loadData();
-  
-  if (e.target.value.length === 0) {
-    showGames();
-  } else {
-    for (let j = 0; j < allGames.length; j++) {
-      if (
-        e.target.value == allGames[j].title ||
-        e.target.value == allGames[j].title.toLowerCase()
-        ) {
-          let filterGame = document.createElement("div");
+  const targ = e.target.value
+  allGames.filter(on => {
+    if (on.title.includes(targ) || 
+    on.title.toLowerCase().includes(targ.toLowerCase())) {
+      let filterGame = document.createElement("div");
           filterGame.classList.add("game__div");
           let filterImg = document.createElement("img");
-          filterImg.setAttribute("src", allGames[j].thumbnail);
+          filterImg.setAttribute("src", on.thumbnail);
           filterImg.setAttribute("height", 200);
           filterImg.setAttribute("width", 156);
           
           let filterName = document.createElement("h5");
           filterName.classList.add("game__name");
-          filterName.innerText = allGames[j].title;
+          filterName.innerText = on.title;
           
           let filterGameBtn = document.createElement("button");
           filterGameBtn.classList.add("add-selected-btn");
-          filterGameBtn.innerText = "Add to cart";
-          filterGameBtn.setAttribute("game", JSON.stringify(allGames[j]));
+          filterGameBtn.innerText = "Buy now";
+          filterGameBtn.setAttribute("game", JSON.stringify(on));
           
           filterGame.appendChild(filterImg);
           filterGame.appendChild(filterName);
@@ -205,30 +197,32 @@ async function searchLetters(e) {
           gameContainer.appendChild(filterGame);
 
           // check if user has bought selected by him game then refresh a page
+
           filterGameBtn.addEventListener('click', function() {
             if (confirm('Are you sure ?') == true) {
-              
-              alert(`Congrats, you have bought a ${allGames[j].title} game. Enjoy your playing :) `)
+              alert(`Congrats, you have bought a ${on.title} game. Enjoy your playing :) `)
               setTimeout(function(){
                 window.location.reload();
             }, 3000);
-        }
-        
+        } 
       })
-      }
-    }
-  }
+    }  
+  })
 }
 
 // addEventListeners
 
-hamburger.addEventListener('click', () => {
+menuInfo.addEventListener('click', () => {
   navBar.classList.toggle('show-navbar');
 });
 
 shop.addEventListener('click', () => {
-  ulList.classList.toggle('hide');
+  //ulList.classList.toggle('hide');
   ulList.classList.toggle('appear');
+});
+
+hamburger.addEventListener('click', () => {
+  asideMenu.classList.toggle('appear');
 });
 
 document.querySelectorAll('.img').forEach(function (el) {
@@ -242,6 +236,49 @@ moreGameBtn.addEventListener("click", sliced);
 
 searchInput.addEventListener("change", searchLetters);
 
+
+// Draft
+
+/*let games = [
+  {name: 'gta', id: 1, price: 90, img: 'img1.jpg', url: "../games/gta5.html"},
+  {name: 'naruto', id: 2, price: 100, img: 'img2.jpg', url: "../games/Naruto.html"}, 
+  {name: 'kratos', id: 3, price: 50, img: 'img3.jpg', url: "../games/kratos.html"},
+  {name: 'souls', id: 4, price: 24, img: 'img4.jpg', url: "../games/souls.html"},
+  {name: 'persona', id: 5, price: 35, img: 'img5.jpg', url: "../games/persona.html"},
+  {name: 'final', id: 6, price: 65, img: 'img6.jpg', url: "../games/final.html"},
+  {name: 'witcher', id: 7, price: 18, img: 'img7.jpg', url: "../games/witcher.html"},
+];*/
+
+/*listData.map((el) => {
+  newData.push({
+    "title": el.title.split('_').map(word => {
+      return word[0].toUpperCase() + word.substring(1)
+    }).join(' '),
+    "dataTypes": el.dataTypes
+  })
+})*/
+
+/*const newData = []
+
+async function spec () {
+  const games = await loadData()
+
+  games.map((el) => {
+    let title = el.title.toLowerCase()
+    return newData.push({
+      ...el,
+      title
+    })
+  })
+
+  console.log(newData)
+  
+  }
+  spec()/*
+
+
+
+
 // Alert if user has bought a game
 
 /*ulList.addEventListener('click', (e) => {
@@ -249,14 +286,6 @@ searchInput.addEventListener("change", searchLetters);
     alert("Congratulations, you have bought a game");
   }
 });*/
-
-
-
-
-
-
-
-
 
 /*function createGameGrid() {
   for (let i = 0; i < games.length; i++) {
@@ -422,24 +451,3 @@ console.log(firstLetters)*/
   }
 }
 }*/
-
-//{mode: "no-cors"}
-
-// remove game with every click
-
-/*function deleteLi (e) {
-  const ulList = document.querySelector('.list');
-  const liItem = document.querySelector('.list__item');
-  const deleteBtn = document.createElement('button');
-  deleteBtn.classList.add('list__delete');
-
-  if (e.target && e.target.classList == 'list__delete') {
-    ulList.removeChild(liItem);
-    cartNumber.innerHTML = --i;
-    if (cartNumber.innerHTML == 0){
-      cartNumber.classList.add('hide-number');
-    }
-  } 
-}
-
-document.addEventListener('click', deleteLi);*/

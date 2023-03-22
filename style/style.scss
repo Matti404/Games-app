@@ -8,30 +8,29 @@
 
 body {
     position: relative;
-    transition: transform 0.3s ease;
-    min-height: 100%;
-    width: 100%;
+    min-height: 100vh;
     background-color: orange;
+    //overflow: hidden;
 }
+
 
 .menu {
     background-color: hsl(29, 53%, 42%);
-    //padding: 16px;
     display: flex;
     flex-wrap: wrap;
     flex-basis: 800px;
 
-    &__hamburger {
+    &__info {
         position: absolute;
-        top: 15px;
-        left: 35px;
-        //height: 100%;
+        top: 25px;
+        left: 20px;
+        text-decoration: none;
         background-color: rgb(227, 196, 138);
-        //background-color: orange;
         color: black;
         border: none;
         padding: 10px 24px;
-        font-size: 25px;    
+        font-size: 25px;
+        cursor: pointer;    
     }
 
     &__list {
@@ -44,33 +43,50 @@ body {
         line-height: 1px;
         width: 100%;
         margin-right: 10px;
+        cursor: pointer;
     }
     &__item {
         margin-left: 9px;
     }
     &__link {
-        // margin: 9px;
         text-decoration: none;
-        //color: #8f8f8f;
         color: black;
-        font-size: 20px;
+        font-size: 25px;
         font-weight: 400;
-        transition: all 0.5s ease-in-out;
-        //position: relative;
+        transition: all 0.2s ease-in-out;
         text-transform: uppercase;
-        //min-width: 100px;
-        }    
+        text-underline-offset: 10px;
+    }
+    &__link:hover {
+        text-decoration: underline;
+        text-decoration-color: #7e2ee7;
+    }
 }
 
 .menu__item:first-of-type {
     margin-left: 99px;
 }
 
+// Styling hamburger btn
+
+.btn__hamburger {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    text-decoration: none;
+    background-color: rgb(227, 196, 138);
+    color: black;
+    border: none;
+    padding: 10px 24px;
+    font-size: 25px;
+}
+
+// header
+
 .header {
     position: relative;
     display: flex;
     justify-content: space-between;
-    //margin: 40px;
 
     &__title {
         text-align: center;
@@ -86,31 +102,32 @@ body {
 // nav container
 
 .nav-container {
-    position: relative;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;   
+    //justify-content: space-between;  
+    //gap: 100px;
+    //flex-wrap: wrap;
+    //overflow: hidden;
+    //width: 100vw;
 }
 
 .search {
-    text-align: center;
     position: relative;
-    margin: 0 auto;
-    height: 150px;
-    //width: 480px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-right: 250px;
+    margin-bottom: 40px;
 }
 
 .search__input {
-    width: 100%;
     border: 3px solid black;
     background-color: black;
     color: white;
     border-radius: 100px;
     padding: 10px 100px 10px 20px; 
     line-height: 1;
-    box-sizing: border-box;
     outline: none;
     font-size: 40px;
+    width: 100%;
 }
 
 .search__input:focus {
@@ -125,12 +142,14 @@ body {
     position: absolute;
     background-color: rgb(182, 182, 13); 
     right: 10px;
-    top: 8px;
+    top: 10px;
     line-height: 1;
     border: none;
     border-radius: 100px;
     padding: 26px 40px;
     width: 90px;
+    cursor: pointer;
+    text-align: center;
 }
 
 .finder-el {
@@ -140,6 +159,44 @@ body {
     transform: translate(-50%, -50%);
     color: white;
 }
+
+.shop {
+    display: block;
+    position: absolute;
+    //margin-left: 30px;
+    right: 30px;
+    padding: 24px 24px;
+    height: 70px;
+    width: 70px;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    background-color: rgb(182, 182, 13);
+    //text-align: center;
+    cursor: pointer;
+
+    .cart {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .cart-number {
+        position: absolute;
+        top: 10px;
+        right: 9px;
+        font-size: 12px;
+        font-weight: bold;
+        height: 15px;
+        width: 15px;
+        background-color: red;
+        border-radius: 50%;
+        text-align: center;
+    }    
+}
+
+
 
 // Styling number on shop icon
 
@@ -159,38 +216,43 @@ body {
     display: none;
 }
 
-
 // Navbar styling 
 
 .info {
-    display: none;
+    display: block;
     position: absolute;
     top: 100px;
     left: 0;
-    width: 350px;
+    width: 330px;
+    transform: translateX(-100%);
+    transition: transform 1.2s ease-in-out;
     background-color: rgb(182, 182, 13);
     text-align: center;
     min-height: calc(100% - 160px);
+    //min-height: 100%;
+    z-index: 0;
     
     ul {
         list-style-type: none;
         margin: 0;
         padding: 0;
+        height: 100%;
+        
 
         li {
             border-bottom: 2px solid black;
-            padding: 40px;
+            padding: 10px 0;
+            height: 81px;
         }
 
             p {
-                font-size: 40px;
-            }
-            
+                font-size: 20px;
+            }        
     }
 
     &__photo {
         position: relative;
-        height: 120px;
+        height: 100px;
         width: 100px;
         border-radius: 50%;
         margin: 16px 0;
@@ -206,21 +268,22 @@ li:nth-last-child(2) p:last-child {
 
 
 .show-navbar {
-    display: block;
-    position: absolute;
+    opacity: 1;
+    transform: translateX(0);
     z-index: 1;
 }
-
-
-
 
 .info ul li:first-of-type {
     border-top: 4px solid rgba(15, 2, 2, 0.8);
 }
 
+.info ul li:last-of-type {
+    border-bottom: 2px solid black;
+}
+
 // info section
 
-.info-container {
+/*.info-container {
     margin-top: 25px;
     margin-left: 15px;
 
@@ -242,10 +305,58 @@ li:nth-last-child(2) p:last-child {
         color: gold;
     }
 }
+*/
 
 // box section
 
+// Game container styling
 
+.game-container {
+    display: flex;
+    //flex-direction: column;
+    //flex-basis: 100%;
+    //width: 1440px;
+    flex-wrap: wrap;
+    gap: 10px;
+    row-gap: 20px;
+    //flex-grow: 2;
+    //justify-content: space-between;
+    //height: 100px;
+    //width: 100%;
+    // grid-template-columns: 1fr 1fr 1fr;
+    //grid-template-rows: 450px 450px 450px;
+    //-flex-direction: column;
+    //margin-top: 20px;
+    //text-align: center;
+}
+
+.game-container > div {
+    //width: 100px;
+    text-align: center;
+    //margin: 0 20px;
+    flex: 1 0 200px; 
+}
+
+.game__image {
+    height: 150px;
+    width: 150px;;
+}
+
+.game__name {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 14px;
+    //text-align: center;
+}
+
+.appear {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
 
 .game__btn, .add-selected-btn { 
     color: black;
@@ -285,36 +396,14 @@ li:nth-last-child(2) p:last-child {
     }
 }
 
-.game__name {
-    font-size: 30px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    margin-top: 14px;
-    text-align: center;
-}
-  
-.game__price {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    margin-top: 14px;
-    text-align: center;
-}
 
-
-.appear {
-    display: block;
-}
-
-.hide {
-    display: none;
-}
 
 
 // Styling button that adds more games
 
 #more {
     display: block;
+    position: relative;
     margin: 80px auto 80px;
     color: black;
     padding: 0.6rem 1.3rem;
@@ -328,12 +417,17 @@ li:nth-last-child(2) p:last-child {
     text-align: center;
     height: 50px;
     width: 130px;
+    z-index: 2;
+
+    &:hover {
+        transform: scale(1.1);
+    }
 }
-  
+
 /* Footer */
 
 footer {
-    position: relative;
+    //position: fixed;
     background: rgb(15, 78, 99);
     color: white;
     padding: 20px 0;
@@ -342,7 +436,8 @@ footer {
     margin-top: 40px;
     //left: 0;
     height: 60px;
-    z-index: 2;
+    width: 100%;
+    //z-index: 2;
 }
   
 

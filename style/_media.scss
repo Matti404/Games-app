@@ -1,9 +1,8 @@
 $breakpoints: (
-    'xs': 0,
-    'sm': 480px,
-    'md': 720px,
-    'lg': 960px,
-    'xl': 1200px,
+    'sm': 530px,
+    'md': 681px,
+    'lg': 802px,
+    'xl': 1440px,
 );
 
 @mixin xs {
@@ -36,109 +35,31 @@ $breakpoints: (
     }
 }
 
-body {
-    @include xs {
-        background-color: rgb(18, 86, 213);
-
-    }
-    @include sm {
-        background-color: green;
-    }
-    @include md {
-        background-color: red;
-    }
-    @include lg {
-        background-color: yellow;
-    }
-    @include xl {
-        background-color: orange;
-        
-    }
-    
-}
-
-.game-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 450px 450px 450px;
-    margin-top: 20px;
-    margin-bottom: 50px;
-    text-align: center;
-    grid-gap: 20px;
-
-    
-
-   /* @media (max-width: 768px) {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 450px 450px 450px 450px 450px;
-    }
-
-    @media (max-width: 375px) {
-        grid-template-columns: 1fr;
-        grid-template-rows: 450px 450px 450px 450px 450px 450px 450px 450px 450px;
-    }*/
-}
-
-.shop {
-    position: relative;
-    right: 100px;
-    padding: 24px 24px;
-    height: 70px;
-    width: 70px;
-    border: none;
-    border-radius: 50%;
-    color: white;
-    background-color: rgb(182, 182, 13);
-    text-align: center;
-
-    .cart-number {
-        position: absolute;
-        top: 10px;
-        //left: 0px;
-        right: 9px;
-        font-size: 12px;
-        font-weight: bold;
-        height: 15px;
-        width: 15px;
-        background-color: red;
-        border-radius: 50%;
-    }
-
-    .cart {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-       /* @media (max-width: 375px ) {
-            max-width: 375px;
-        }*/
-    }
-}
-
-
 @include xl {
     .shop {
         height: 70px;
         width: 70px;
     }
+    .btn__hamburger {
+        display: none;
+    }
 
 // Show list of items stored when click on shop icon
 
 .list {
-    display: block;
+    display: none;
     position: absolute;
     top: 319px;
     right: 0;
     width: 300px;
 
     .list__item {
-        //position: absolute;
+        display: flex;
         list-style-type: none;
         width: 100%;
         height: 100px;
         top: 0px;
         right: 0px;
-        display: flex;
         justify-content: space-between;
         align-items: center;
         color: #333;
@@ -147,12 +68,6 @@ body {
         border-bottom: 2px solid #333;
     }
 }
-
-.appear {
-    display: block;
-}
-
-
 
 .list__delete {
     cursor: pointer;
@@ -167,36 +82,107 @@ body {
         transform: scale(1.1);
     }
 }
+}
 
+/* Special Menu */
 
+.aside-menu {
+    display: block;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    height: 250px;
+    width: 100%;
+    transform: translateX(-100%);
+    transition: transform 1s ease-in-out;
+    background-color: rgb(182, 182, 13);
+
+    &__list {
+        display: block;
+        height: 100px;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+    &__item {
+        margin-top: 23px;
+        margin-left: 25px;
+    }
+    
+    &__link {
+        text-decoration: none;
+        color: black;
+        font-size: 20px;
+        font-weight: 400;
+        transition: all 0.5s ease-in-out;
+        text-transform: uppercase;
+        text-underline-offset: 8px;
+    } 
+
+    &__link:hover {
+        text-decoration: underline;
+        text-decoration-color: #7e2ee7;
+    }  
+}
+
+    
+
+.appear {
+    display: block;
+    transform: translateX(0);
+}
+
+.hide {
+    display: none;
+}
+
+@include lg {
+    
+    /*.search__input {
+        width: 400px;
+    }*/
+    .shop {
+        height: 70px;
+        width: 70px;
+        padding: 24px 24px;
+    }
 }
 
 @include md {
+
+    /*.search__input {
+        width: 350px;
+    }*/
+    
+    .menu__item {
+        display: none;
+    }
+    .btn__hamburger {
+        display: block;
+    }
+
     .shop {
-        right: 30px;
+        height: 70px;
+        width: 70px;
     }
 }
 
 @include sm {
-    .game-container {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 450px 450px;
-    }
 
-    .search {
-        width: 300px;
+    /*.nav-container {
+        //justify-content: space-between;
     }
-
+    
     .search__input {
         height: 90px;
-        width: 200px;
+        width: 300px;
     }
 
     .finder {
         height: 73px;
     }
     .shop {
-        right: 30px;
+        right: 20px;
         height: 90px;
         width: 90px;
     }
@@ -206,6 +192,11 @@ body {
 
     .list {
         top: 338px;
+    }*/
+    .shop {
+        //right: 20px;
+        height: 70px;
+        width: 70px;
     }
 }
 
