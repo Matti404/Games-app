@@ -1,5 +1,5 @@
 const gameContainer = document.querySelector(".game-container");
-const searchInput = document.querySelector(".search");
+const searchInput = document.querySelector(".search__input");
 const cartNumber = document.querySelector(".cart-number");
 const hamburger = document.getElementById("hamburger");
 const menuInfo = document.querySelector('.menu__info');
@@ -37,6 +37,7 @@ async function loadData() {
   }
 
 
+  
   const shop = document.querySelector(".shop");
   const addToCartButtons = document.querySelectorAll(".game__btn");
   const buyButtons = document.querySelectorAll(".list__buy");
@@ -63,6 +64,8 @@ async function loadData() {
       gameContainer.appendChild(item);
     });
   }
+
+  showGames()
   
   function clickedGame() {
     if (cartNumber.innerHTML == 1) {
@@ -138,7 +141,7 @@ async function loadData() {
   clickedGame();
 }
 
-showGames();
+//showGames();
 
 let start = 8;
 let end = 16;
@@ -167,10 +170,10 @@ async function sliced() {
 
 // narrow search results after user types game title in input field
 
-async function searchLetters(e) {
+async function searchLetters() {
   gameContainer.innerHTML = "";
   const allGames = await loadData();
-  const targ = e.target.value
+  let targ = searchInput.value;
   allGames.filter(on => {
     if (on.title.includes(targ) || 
     on.title.toLowerCase().includes(targ.toLowerCase())) {
@@ -210,6 +213,22 @@ async function searchLetters(e) {
   })
 }
 
+// debounce function 
+
+function debounce (callback, limit) {
+  let timeout;
+  return () => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      callback();
+    }, limit);
+  };
+}
+
+const debounceFinal = debounce(searchLetters, 2000);
+
+
+
 // addEventListeners
 
 menuInfo.addEventListener('click', () => {
@@ -234,7 +253,7 @@ document.querySelectorAll('.img').forEach(function (el) {
 
 moreGameBtn.addEventListener("click", sliced);
 
-searchInput.addEventListener("change", searchLetters);
+searchInput.addEventListener("change", debounceFinal);
 
 
 // Draft

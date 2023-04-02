@@ -11,6 +11,7 @@ body {
     min-height: 100vh;
     background-color: orange;
     //overflow: hidden;
+    //width: 100vw;
 }
 
 
@@ -83,118 +84,12 @@ body {
 
 // header
 
-.header {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-
-    &__title {
-        text-align: center;
-        flex-grow: 1;
-        font-family: Georgia, 'Times New Roman', Times, serif;
-        font-size: 60px;
-        color: #e72e9d;
-        margin: 40px auto;
-    }
-}
 
 
-// nav container
 
-.nav-container {
-    display: flex;
-    //justify-content: space-between;  
-    //gap: 100px;
-    //flex-wrap: wrap;
-    //overflow: hidden;
-    //width: 100vw;
-}
+//
 
-.search {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-right: 250px;
-    margin-bottom: 40px;
-}
-
-.search__input {
-    border: 3px solid black;
-    background-color: black;
-    color: white;
-    border-radius: 100px;
-    padding: 10px 100px 10px 20px; 
-    line-height: 1;
-    outline: none;
-    font-size: 40px;
-    width: 100%;
-}
-
-.search__input:focus {
-    outline: none;
-}
-
-::placeholder {
-    color: white;
-}
-
-.finder {
-    position: absolute;
-    background-color: rgb(182, 182, 13); 
-    right: 10px;
-    top: 10px;
-    line-height: 1;
-    border: none;
-    border-radius: 100px;
-    padding: 26px 40px;
-    width: 90px;
-    cursor: pointer;
-    text-align: center;
-}
-
-.finder-el {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-}
-
-.shop {
-    display: block;
-    position: absolute;
-    //margin-left: 30px;
-    right: 30px;
-    padding: 24px 24px;
-    height: 70px;
-    width: 70px;
-    border: none;
-    border-radius: 50%;
-    color: white;
-    background-color: rgb(182, 182, 13);
-    //text-align: center;
-    cursor: pointer;
-
-    .cart {
-        position: relative;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .cart-number {
-        position: absolute;
-        top: 10px;
-        right: 9px;
-        font-size: 12px;
-        font-weight: bold;
-        height: 15px;
-        width: 15px;
-        background-color: red;
-        border-radius: 50%;
-        text-align: center;
-    }    
-}
+//
 
 
 
@@ -229,7 +124,6 @@ body {
     background-color: rgb(182, 182, 13);
     text-align: center;
     min-height: calc(100% - 160px);
-    //min-height: 100%;
     z-index: 0;
     
     ul {
@@ -311,44 +205,6 @@ li:nth-last-child(2) p:last-child {
 
 // Game container styling
 
-.game-container {
-    display: flex;
-    //flex-direction: column;
-    //flex-basis: 100%;
-    //width: 1440px;
-    flex-wrap: wrap;
-    gap: 10px;
-    row-gap: 20px;
-    //flex-grow: 2;
-    //justify-content: space-between;
-    //height: 100px;
-    //width: 100%;
-    // grid-template-columns: 1fr 1fr 1fr;
-    //grid-template-rows: 450px 450px 450px;
-    //-flex-direction: column;
-    //margin-top: 20px;
-    //text-align: center;
-}
-
-.game-container > div {
-    //width: 100px;
-    text-align: center;
-    //margin: 0 20px;
-    flex: 1 0 200px; 
-}
-
-.game__image {
-    height: 150px;
-    width: 150px;;
-}
-
-.game__name {
-    font-size: 30px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    margin-top: 14px;
-    //text-align: center;
-}
 
 .appear {
     display: block;
@@ -397,8 +253,6 @@ li:nth-last-child(2) p:last-child {
 }
 
 
-
-
 // Styling button that adds more games
 
 #more {
@@ -427,17 +281,14 @@ li:nth-last-child(2) p:last-child {
 /* Footer */
 
 footer {
-    //position: fixed;
     background: rgb(15, 78, 99);
     color: white;
     padding: 20px 0;
     bottom: 0;
     text-align: center;
     margin-top: 40px;
-    //left: 0;
     height: 60px;
     width: 100%;
-    //z-index: 2;
 }
   
 

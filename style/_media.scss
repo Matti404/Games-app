@@ -1,6 +1,7 @@
 $breakpoints: (
-    'sm': 530px,
-    'md': 681px,
+    'xs': 460px,
+    'sm': 580px,
+    'md': 680px,
     'lg': 802px,
     'xl': 1440px,
 );
@@ -125,8 +126,6 @@ $breakpoints: (
     }  
 }
 
-    
-
 .appear {
     display: block;
     transform: translateX(0);
@@ -136,23 +135,156 @@ $breakpoints: (
     display: none;
 }
 
+.header {
+    position: relative;
+    display: flex;
+
+    &__title {
+        text-align: center;
+        flex-grow: 1;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 60px;
+        color: #e72e9d;
+        margin: 40px auto;
+    }
+}
+
+
+
+// nav container
+
+.nav-container {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+
+.finder {
+    position: absolute;
+    background-color: rgb(182, 182, 13); 
+    right: 10px;
+    top: 10px;
+    line-height: 1;
+    border: none;
+    border-radius: 100px;
+    padding: 26px 40px;
+    width: 90px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.finder-el {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.search {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    //margin-right: 180px;
+    margin-bottom: 40px;
+    width: 400px
+}
+
+.search__input {
+    border: 3px solid black;
+    background-color: black;
+    color: white;
+    border-radius: 100px;
+    padding: 10px 100px 10px 20px; 
+    line-height: 1;
+    outline: none;
+    font-size: 40px;
+    width: 100%;
+}
+
+.search__input:focus {
+    outline: none;
+}
+
+::placeholder {
+    color: white;
+}
+
+
+.shop {
+    position: absolute;
+    right: 30px;
+    height: 70px;
+    width: 70px;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    background-color: rgb(182, 182, 13);
+    cursor: pointer;
+
+    .cart {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .cart-number {
+        position: absolute;
+        top: 10px;
+        right: 9px;
+        font-size: 12px;
+        font-weight: bold;
+        height: 15px;
+        width: 15px;
+        background-color: red;
+        border-radius: 50%;
+        text-align: center;
+    }    
+}
+
+.game-container {
+    display: flex;
+    flex-wrap: wrap;
+    //flex: 1 0 21%;
+    gap: 70px;
+    row-gap: 40px;
+    //justify-content: space-between;
+    //width: 100vw;
+    margin: 0 40px;
+}
+
+.game-container > div {
+    width: 200px;
+    text-align: center;
+    //margin: 0 auto;
+}
+
+
+.game__image {
+    height: 150px;
+    width: 150px;;
+}
+
+.game__name {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 14px;
+    text-align: center;
+}
+
 @include lg {
     
-    /*.search__input {
-        width: 400px;
-    }*/
     .shop {
         height: 70px;
         width: 70px;
-        padding: 24px 24px;
+        margin-left: 90px;
     }
 }
 
 @include md {
-
-    /*.search__input {
-        width: 350px;
-    }*/
     
     .menu__item {
         display: none;
@@ -162,6 +294,7 @@ $breakpoints: (
     }
 
     .shop {
+        right: 20px;
         height: 70px;
         width: 70px;
     }
@@ -169,38 +302,43 @@ $breakpoints: (
 
 @include sm {
 
-    /*.nav-container {
-        //justify-content: space-between;
+    .game-container {
+        justify-content: center;
     }
-    
-    .search__input {
-        height: 90px;
+
+    .search {
         width: 300px;
     }
-
-    .finder {
-        height: 73px;
-    }
+    
     .shop {
-        right: 20px;
-        height: 90px;
-        width: 90px;
-    }
-    .list__item {
-        top: 460px; 
-    }
-
-    .list {
-        top: 338px;
-    }*/
-    .shop {
-        //right: 20px;
+        right: 10px;
         height: 70px;
         width: 70px;
+        //margin-left: 80px;
     }
 }
 
+@include xs {
+
+    .game-container {
+        justify-content: center;
+    }
 
 
+    .header__title {
+        margin: 20px 20px;
+    }
 
+    .search {
+        left: 40%;
+        width: 320px;
+    }
+    
+    .shop {
+        right: 20px;
+        height: 70px;
+        width: 70px;
+        //margin-left: 80px;
+    }
+}
 

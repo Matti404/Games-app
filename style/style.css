@@ -109,21 +109,169 @@
   display: none;
 }
 
+.header {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.header__title {
+  text-align: center;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 60px;
+  color: #e72e9d;
+  margin: 40px auto;
+}
+
+.nav-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  width: 100%;
+}
+
+.finder {
+  position: absolute;
+  background-color: #b6b60d;
+  right: 10px;
+  top: 10px;
+  line-height: 1;
+  border: none;
+  border-radius: 100px;
+  padding: 26px 40px;
+  width: 90px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.finder-el {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: white;
+}
+
+.search {
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  margin-bottom: 40px;
+  width: 400px;
+}
+
+.search__input {
+  border: 3px solid black;
+  background-color: black;
+  color: white;
+  border-radius: 100px;
+  padding: 10px 100px 10px 20px;
+  line-height: 1;
+  outline: none;
+  font-size: 40px;
+  width: 100%;
+}
+
+.search__input:focus {
+  outline: none;
+}
+
+::-webkit-input-placeholder {
+  color: white;
+}
+
+:-ms-input-placeholder {
+  color: white;
+}
+
+::-ms-input-placeholder {
+  color: white;
+}
+
+::placeholder {
+  color: white;
+}
+
+.shop {
+  position: absolute;
+  right: 30px;
+  height: 70px;
+  width: 70px;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  background-color: #b6b60d;
+  cursor: pointer;
+}
+
+.shop .cart {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.shop .cart-number {
+  position: absolute;
+  top: 10px;
+  right: 9px;
+  font-size: 12px;
+  font-weight: bold;
+  height: 15px;
+  width: 15px;
+  background-color: red;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.game-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 70px;
+  row-gap: 40px;
+  margin: 0 40px;
+}
+
+.game-container > div {
+  width: 200px;
+  text-align: center;
+}
+
+.game__image {
+  height: 150px;
+  width: 150px;
+}
+
+.game__name {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-top: 14px;
+  text-align: center;
+}
+
 @media (max-width: 802px) {
-  /*.search__input {
-        width: 400px;
-    }*/
   .shop {
     height: 70px;
     width: 70px;
-    padding: 24px 24px;
+    margin-left: 90px;
   }
 }
 
-@media (max-width: 681px) {
-  /*.search__input {
-        width: 350px;
-    }*/
+@media (max-width: 680px) {
   .menu__item {
     display: none;
   }
@@ -131,37 +279,43 @@
     display: block;
   }
   .shop {
+    right: 20px;
     height: 70px;
     width: 70px;
   }
 }
 
-@media (max-width: 530px) {
-  /*.nav-container {
-        //justify-content: space-between;
-    }
-    
-    .search__input {
-        height: 90px;
-        width: 300px;
-    }
-
-    .finder {
-        height: 73px;
-    }
-    .shop {
-        right: 20px;
-        height: 90px;
-        width: 90px;
-    }
-    .list__item {
-        top: 460px; 
-    }
-
-    .list {
-        top: 338px;
-    }*/
+@media (max-width: 580px) {
+  .game-container {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .search {
+    width: 300px;
+  }
   .shop {
+    right: 10px;
+    height: 70px;
+    width: 70px;
+  }
+}
+
+@media (max-width: 460px) {
+  .game-container {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .header__title {
+    margin: 20px 20px;
+  }
+  .search {
+    left: 40%;
+    width: 320px;
+  }
+  .shop {
+    right: 20px;
     height: 70px;
     width: 70px;
   }
@@ -259,132 +413,6 @@ body {
   border: none;
   padding: 10px 24px;
   font-size: 25px;
-}
-
-.header {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.header__title {
-  text-align: center;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 60px;
-  color: #e72e9d;
-  margin: 40px auto;
-}
-
-.nav-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.search {
-  position: relative;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  margin-right: 250px;
-  margin-bottom: 40px;
-}
-
-.search__input {
-  border: 3px solid black;
-  background-color: black;
-  color: white;
-  border-radius: 100px;
-  padding: 10px 100px 10px 20px;
-  line-height: 1;
-  outline: none;
-  font-size: 40px;
-  width: 100%;
-}
-
-.search__input:focus {
-  outline: none;
-}
-
-::-webkit-input-placeholder {
-  color: white;
-}
-
-:-ms-input-placeholder {
-  color: white;
-}
-
-::-ms-input-placeholder {
-  color: white;
-}
-
-::placeholder {
-  color: white;
-}
-
-.finder {
-  position: absolute;
-  background-color: #b6b60d;
-  right: 10px;
-  top: 10px;
-  line-height: 1;
-  border: none;
-  border-radius: 100px;
-  padding: 26px 40px;
-  width: 90px;
-  cursor: pointer;
-  text-align: center;
-}
-
-.finder-el {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  color: white;
-}
-
-.shop {
-  display: block;
-  position: absolute;
-  right: 30px;
-  padding: 24px 24px;
-  height: 70px;
-  width: 70px;
-  border: none;
-  border-radius: 50%;
-  color: white;
-  background-color: #b6b60d;
-  cursor: pointer;
-}
-
-.shop .cart {
-  position: relative;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-}
-
-.shop .cart-number {
-  position: absolute;
-  top: 10px;
-  right: 9px;
-  font-size: 12px;
-  font-weight: bold;
-  height: 15px;
-  width: 15px;
-  background-color: red;
-  border-radius: 50%;
-  text-align: center;
 }
 
 .show {
@@ -486,35 +514,6 @@ li:nth-last-child(2) p:last-child {
     }
 }
 */
-.game-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  gap: 10px;
-  row-gap: 20px;
-}
-
-.game-container > div {
-  text-align: center;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 200px;
-          flex: 1 0 200px;
-}
-
-.game__image {
-  height: 150px;
-  width: 150px;
-}
-
-.game__name {
-  font-size: 30px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  margin-top: 14px;
-}
-
 .appear {
   display: block;
 }
